@@ -29,7 +29,7 @@ def main():
     args = parser.parse_args()
 
 
-    modeler = LGB_TrainAPI_Predict(modelfile = CONST.MODELDIR + '/lgb_bagging_beta_*.pkl',
+    modeler = LGB_TrainAPI_Predict(modelfile = CONST.MODELDIR + args.modelname,
                            datafile = CONST.DATADIR + '/df_train_*.pkl')
 
     # get data
@@ -76,9 +76,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-columns = test.columns
-for i in columns:
-    print df.loc[:,i].describe()
-    print test.loc[:,i].describe()
